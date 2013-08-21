@@ -1,4 +1,4 @@
-This is a short library for writing pure monadic-state code in Elm.
+A short library for writing pure monadic-state code in Elm.
 
 Similar to Control.Monad.State, but closer to the non-tranformer version here:
 
