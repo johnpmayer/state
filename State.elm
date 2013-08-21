@@ -14,7 +14,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -}
 
-module State where
+module Public.State.State where
 
 type State s a = { runState : s -> (a, s) }
 
