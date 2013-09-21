@@ -61,3 +61,5 @@ fmapS f st =
   bindS st (\x ->
   returnS <| f x)
 
+updateS : (a -> a) -> State a ()
+updateS f = bindS get (\s -> put <| f s)
