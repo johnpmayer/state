@@ -1,0 +1,9 @@
+{ "version": "0.2.1"
+, "summary": "Provides an implementation of the State Monad"
+, "description": "Provides an implementation of the State Monad"
+, "license": "AGPL-3"
+, "repository": "https://github.com/johnpmayer/state.git"
+, "exposed-modules": ["Control.State"]
+, "elm-version": "0.12"
+, "dependencies": {}
+}
