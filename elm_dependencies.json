@@ -1,6 +1,6 @@
-{ "version": "0.2.1"
-, "summary": "Provides an implementation of the State Monad"
-, "description": "Provides an implementation of the State Monad"
+{ "version": "0.2.1.1"
+, "summary": "A way to manage state"
+, "description": "This library helps you manage state in a way that is referentially transparent and pure. It is based on Haskell's `Control.State` library."
 , "license": "AGPL-3"
 , "repository": "https://github.com/johnpmayer/state.git"
 , "exposed-modules": ["Control.State"]
