@@ -18,6 +18,8 @@
 
 module Control.State where
 
+{-| -}
+
 type alias State s a = { runState : s -> (a, s) }
 
 get : State s s
