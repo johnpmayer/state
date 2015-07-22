@@ -18,7 +18,7 @@
 
 module Control.State where
 
-type State s a = { runState : s -> (a, s) }
+type alias State s a = { runState : s -> (a, s) }
 
 get : State s s
 get = State <| \s -> (s, s)
@@ -27,10 +27,10 @@ put : s -> State s ()
 put s' = State <| \s -> ((), s')
 
 evalState : State s a -> s -> a
-evalState st = fst . st.runState
+evalState st = fst << st.runState
 
 execState : State s a -> s -> s
-execState st = snd . st.runState
+execState st = snd << st.runState
 
 {- Monad Instance -}
 
@@ -43,16 +43,16 @@ bindS st f =
     \s -> let (x, s') = st.runState s
           in (f x).runState s'
 
-sequenceS : [State s a] -> State s [a]
+sequenceS : List (State s a) -> State s (List a)
 sequenceS ms = 
   let k m m' = 
     bindS m (\x ->
     bindS m' (\xs ->
     returnS <| x :: xs))
-  in foldr k (returnS []) ms
+  in List.foldr k (returnS []) ms
 
-mapMS : (a -> State s b) -> [a] -> State s [b]
-mapMS f = sequenceS . map f
+mapMS : (a -> State s b) -> List a -> State s (List b)
+mapMS f = sequenceS << List.map f
 
 {- Functor Instance (derived) -}
 
